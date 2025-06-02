@@ -2,10 +2,33 @@
 
 namespace App\Controllers;
 
+// se importo el modelo 
+use App\Models\EmpleadoModel;
+
 class Home extends BaseController
 {
-    public function index(): string
+    public function index()
     {
         return view('welcome_message');
+    }
+
+    public function insertar()
+    {
+        // instacio el modelo 
+        $empleadoModel = new EmpleadoModel();
+
+        // extrae los datos del formulario 
+        $data = [
+            'nombre' => $this->request->getPost('nombre'),
+            'apellidos' => $this->request->getPost('apellidos'),
+            'correo' => $this->request->getPost('correo'),
+            'telefono' => $this->request->getPost('telefono'),
+        ];
+
+        // inserta los datos a la base de datos 
+        $empleadoModel->insert($data);
+
+        // redirige a la pagina 
+        return redirect()->to('/')->with('mensaje','empleado agregado correctamente');
     }
 }

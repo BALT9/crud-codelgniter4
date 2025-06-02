@@ -11,8 +11,10 @@ class Empleados extends Migration
         //aqui va la tabla
         $this->forge->addField([
             'id' => [
-                'type' => 'INT',
-                'auto_increment'
+                'type'           => 'INT',
+                'constraint'     => 11,        // tamaño recomendado para INT
+                'unsigned'       => true,
+                'auto_increment' => true,
             ],
             'nombre' => [
                 'type' => 'VARCHAR',
@@ -33,7 +35,7 @@ class Empleados extends Migration
         ]);
 
         // define la clave primaria(id)
-        $this->forge->addKey('id',true);
+        $this->forge->addKey('id', true);
         $this->forge->createTable('empleados');
     }
 

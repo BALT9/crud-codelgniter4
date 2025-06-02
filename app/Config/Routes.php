@@ -14,6 +14,6 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->post('/insertar', 'Home::insertar');
 $routes->post('/actualizar', 'Home::actualizar');
-$routes->get('/eliminar', 'Home::eliminar');
+$routes->get('/eliminar/(:num)', 'Home::eliminar/$1');
 
 
