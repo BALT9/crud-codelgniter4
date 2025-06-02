@@ -9,7 +9,13 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('welcome_message');
+        $empleadoModel = new EmpleadoModel();
+
+        // obtener todos los empleados
+        $data['empleados'] = $empleadoModel->findAll();
+
+        // Enviar datos a la vista
+        return view('welcome_message', $data);
     }
 
     public function insertar()
@@ -29,6 +35,6 @@ class Home extends BaseController
         $empleadoModel->insert($data);
 
         // redirige a la pagina 
-        return redirect()->to('/')->with('mensaje','empleado agregado correctamente');
+        return redirect()->to('/')->with('mensaje', 'empleado agregado correctamente');
     }
 }

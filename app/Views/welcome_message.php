@@ -27,31 +27,25 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">id</th>
+                    <th scope="col">nombre</th>
+                    <th scope="col">apellidos</th>
+                    <th scope="col">correo</th>
+                    <th scope="col">telefono</th>
+                    <th scope="col">acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>@social</td>
-                </tr>
+                <?php foreach($empleados as $empleado): ?>
+                    <tr>
+                        <th scope="row"><?= $empleado['id'] ?></th>
+                        <td><?= $empleado['nombre']?></td>
+                        <td><?= $empleado['apellidos']?></td>
+                        <td><?= $empleado['correo']?></td>
+                        <td><?= $empleado['telefono']?></td>
+                        <td><?= $empleado['id']?></td>
+                    </tr>
+                <?php endforeach;?>
             </tbody>
         </table>
     </div>
