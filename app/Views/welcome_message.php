@@ -36,16 +36,18 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($empleados as $empleado): ?>
+                <?php foreach ($empleados as $empleado): ?>
                     <tr>
                         <th scope="row"><?= $empleado['id'] ?></th>
-                        <td><?= $empleado['nombre']?></td>
-                        <td><?= $empleado['apellidos']?></td>
-                        <td><?= $empleado['correo']?></td>
-                        <td><?= $empleado['telefono']?></td>
-                        <td><?= $empleado['id']?></td>
+                        <td><?= $empleado['nombre'] ?></td>
+                        <td><?= $empleado['apellidos'] ?></td>
+                        <td><?= $empleado['correo'] ?></td>
+                        <td><?= $empleado['telefono'] ?></td>
+                        <td><button type="button" class="btn btn-success">Success</button>
+                            <button type="button" class="btn btn-danger">Danger</button>
+                        </td>
                     </tr>
-                <?php endforeach;?>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
