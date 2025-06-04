@@ -37,4 +37,32 @@ class Home extends BaseController
         // redirige a la pagina 
         return redirect()->to('/')->with('mensaje', 'empleado agregado correctamente');
     }
+
+    // eliminar empleado 
+    public function eliminar($id)
+    {
+        $empleado = new EmpleadoModel();
+
+        $empleado->delete($id);
+
+        return redirect()->to('/')->with('mensaje', 'empleado eliminado correctamente');
+    }
+
+    public function actualizar()
+    {
+        $empleadoModel = new EmpleadoModel();
+
+        $id = $this->request->getPost('id'); // el id viene como campo oculto del formulario
+
+        $data = [
+            'nombre'    => $this->request->getPost('nombre'),
+            'apellidos' => $this->request->getPost('apellidos'),
+            'correo'    => $this->request->getPost('correo'),
+            'telefono'  => $this->request->getPost('telefono'),
+        ];
+
+        $empleadoModel->update($id, $data);
+
+        return redirect()->to('/')->with('mensaje', 'Empleado actualizado correctamente');
+    }
 }

@@ -14,6 +14,6 @@ $routes->get('/insertar', function () {
 $routes->get('/', 'Home::index');
 $routes->post('/insertar', 'Home::insertar');
 $routes->post('/actualizar', 'Home::actualizar');
-$routes->get('/eliminar/(:num)', 'Home::eliminar/$1');
+$routes->post('/eliminar/(:num)', 'Home::eliminar/$1');
 
 
